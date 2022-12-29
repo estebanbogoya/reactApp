@@ -1,9 +1,25 @@
-.navbar{
-    background-color: gray;
+.barra{
+    background-color: rgb(34, 34, 34);
 }
 
-.navContent{
+.contenido{
+    list-style-type: none;
     display: flex;
     justify-content: space-around;
-    list-style-type: none;
+    align-items: center;
+    margin-top: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #1dbab4;
+}
+
+span{
+   color:#1dbab4;
+}
+
+.logo{
+    height: 50px;
+    justify-self: flex-start;
 }
