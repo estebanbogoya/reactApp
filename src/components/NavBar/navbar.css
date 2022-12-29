@@ -1,5 +1,6 @@
 .barra{
     background-color: rgb(34, 34, 34);
+    height: 70px;
 }
 
 .contenido{
@@ -8,6 +9,7 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a{
@@ -20,6 +22,6 @@ span{
 }
 
 .logo{
-    height: 50px;
+    height: 70px;
     justify-self: flex-start;
 }
