@@ -7,34 +7,3 @@
     color:#1dbab4;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-.containerBotones{
-    margin-top: 50px;
-    max-width: 300px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-left: 150px;
-}
-
-.itemCount{
-    display: flex;
-    justify-content: space-around;
-    background-color: white;    
-    width:130px;
-    height: 30px;
-    border-radius: 15px;
-}
-.addCart{
-    font-size: small;
-    height: 30px;
-    background-color: white;
-    color: black;
-    width: 130px;
-    border-radius: 15px;
-    border: white;
-}
-
-.addCart:hover{
-    background-color: #1dbab4;
-}

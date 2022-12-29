@@ -1,6 +1,7 @@
 import './itemlist.css';
 import Button from '../Button/Button';
 import ItemCount from '../ItemCount/ItemCount';
+import BotonPrueba from './BotonPrueba';
 
 export default function ItemListContainer(props) {
     return (
@@ -10,6 +11,8 @@ export default function ItemListContainer(props) {
             <Button/>
             <br></br>
             <ItemCount/>
+            <br />
+            <BotonPrueba/>
         </div>
     )
 }
