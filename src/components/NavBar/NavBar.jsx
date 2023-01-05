@@ -12,9 +12,9 @@ export default function NavBar(props) {
                             <img className='logo' src="/img/logo.png" alt="logo" />
                         </a>
                     </li>
-                    <NavItem href="/camisetas" text="Camisetas" />
-                    <NavItem href="/zapatillas" text="Zapatillas" />
-                    <NavItem href="/otros" text="Otros" />
+                    <NavItem href="/camisetas" text="Autos" />
+                    <NavItem href="/zapatillas" text="Motos" />
+                    <NavItem href="/otros" text="Accesorios" />
                     <li>
                         <CartWidget />
                     </li>

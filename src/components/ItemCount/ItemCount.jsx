@@ -29,7 +29,7 @@ export default function ItemCount() {
             <button onClick = {agregarAlCarrito}className="addCart">Agregar al Carrito</button>
             <div className="itemCount">
                 <span onClick={bajarCantidad}>-</span>
-                <p>{cantidad}</p>
+                <p className="parra">{cantidad}</p>
                 <span onClick={subirCantidad}>+</span>
             </div>
         </div>

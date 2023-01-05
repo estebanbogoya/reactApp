@@ -1,9 +1,16 @@
 .itemList{
-    margin-top: 0;
-    height: 500px;
-    background-color:#12343b;
+    margin-top: 20px;
+    max-height:max-content;
+    background-color:white;
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    justify-content: center;
+    justify-content: space-around;
+    row-gap: 50px;
+    margin-bottom: 20px;
 }
 .title{
+    margin-top: 0;
     color:#1dbab4;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
