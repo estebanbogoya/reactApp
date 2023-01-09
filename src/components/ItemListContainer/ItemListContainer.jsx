@@ -1,18 +1,28 @@
 import './itemlist.css'; 
 import Item from './Item';
-import obtenerProductos from '../../services/mockService';
+import obtenerProductos, { obtenerCategoria } from '../../services/mockService';
 import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom';
 
 export default function ItemListContainer(props) {
   const [arrayProductos, setArrayProductos] = useState([])
+  let {categoryid} = useParams();
 
-  console.log("%cRenderizando ItemListContainer", "background-color: yellow");
+  console.log("%cRenderizando itemlist!", "background-color: yellow");
  
   useEffect(()=>{
-    obtenerProductos().then((respuesta)=>{
-      setArrayProductos(respuesta);
-    }).catch(error=>alert(error))
-  },[]);
+    if(!categoryid){
+      obtenerProductos().then((respuesta)=>{
+        setArrayProductos(respuesta);
+      }).catch(error=>alert(error))
+    }else{
+      obtenerCategoria(categoryid)
+      .then((respuesta)=>{
+        setArrayProductos(respuesta)
+      })
+    }
+    
+  },[categoryid]);
 
     return (
         <div className='itemList'>

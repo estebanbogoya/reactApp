@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function NavItem({ text, href }) {
     return (
         //Destructuring 
         <li>
-            <a href={href}>{text}</a>
+            <Link to={href}>{text}</Link>
         </li>
     )
 }

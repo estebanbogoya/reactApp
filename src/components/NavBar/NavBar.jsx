@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget'
 import './navbar.css'
 import NavItem from './NavItem'
@@ -7,14 +8,9 @@ export default function NavBar(props) {
         <div className='barra'>
             <nav>
                 <ul className='contenido'>
-                    <li>
-                        <a href="/">
-                            <img className='logo' src="/img/logo.png" alt="logo" />
-                        </a>
-                    </li>
-                    <NavItem href="/camisetas" text="Autos" />
-                    <NavItem href="/zapatillas" text="Motos" />
-                    <NavItem href="/otros" text="Accesorios" />
+                    <Link to="/"><img className='logo' src="/img/logo.png" alt="logo" /></Link>
+                    <Link to="/category/New">Modernos</Link>
+                    <Link to="/category/Old">Antiguos</Link>
                     <li>
                         <CartWidget />
                     </li>

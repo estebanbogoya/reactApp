@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './item.css'
 
 export default function Item(props){
-    const {title, model, year, image, price} = props.item
+    const {title, model, year, image, price, id} = props.item
     return(
         <div className="cardProductos">
             <h2>{title}</h2>
@@ -10,7 +11,9 @@ export default function Item(props){
             <h4>{year}</h4>
             <img className="img"src={image} alt="producto en venta" />
             <p>${price} usd</p>
-            <ItemCount/>
+            <Link to = {`/detail/${id}`}>
+                <button className='btn btn-success'>Ver Detalle</button>
+            </Link>
         </div>
     )
 }
