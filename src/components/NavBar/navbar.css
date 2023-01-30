@@ -27,4 +27,6 @@ span{
 .logo{
     height: 70px;
     justify-self: flex-start;
+    border: 1px black solid;
+    border-radius: 50px;
 }

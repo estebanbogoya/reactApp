@@ -7,11 +7,11 @@ import ItemDetail from "./ItemDetail";
 export default function ItemDetailContainer() {
     const [producto, setProducto] = useState([])
 
-    let params = useParams();
-    console.log(params);
+    let {itemid} = useParams();
+    console.log(itemid);
 
     useEffect(() => {
-        obtenerDetalle(params.itemid).then((respuesta) => {
+        obtenerDetalle(itemid).then((respuesta) => {
             setProducto(respuesta);
         }).catch(error => alert(error))
     }, [])

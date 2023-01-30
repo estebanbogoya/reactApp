@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import ItemCount from '../ItemCount/ItemCount'
 import './item.css'
 
 export default function Item(props){
