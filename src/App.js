@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar/NavBar"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import PageNotFound from './components/Pages/PageNotFound';
-import Button from './components/Button/Button';
+import { CartProvider } from './storage/cartContext'
 
 function App() {
   function logOutSession() {
@@ -17,13 +17,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar onLogin={logInSession} onLogOut={logOutSession} />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/detail/:itemid" element={<ItemDetailContainer />} />
-          <Route path="/category/:categoryid" element={<ItemListContainer />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+        <CartProvider>
+          <NavBar onLogin={logInSession} onLogOut={logOutSession} />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/detail/:itemid" element={<ItemDetailContainer />} />
+            <Route path="/category/:categoryid" element={<ItemListContainer />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   );

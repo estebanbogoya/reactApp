@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import './itemcount.css'
 
-export default function ItemCount({onAddToCart}) {
+export default function ItemCount({onAddToCart, onDelete}) {
     let stock = 10
     const [cantidad, setCantidad] = useState(1)
 
@@ -23,12 +23,13 @@ export default function ItemCount({onAddToCart}) {
 
     return (
         <div className="containerBotones">
-            <Button onClick = {()=>onAddToCart(cantidad)} className="addCart">Agregar al Carrito</Button>
+            <Button onClick = {()=>onAddToCart(cantidad)} className="btn btn-success">Agregar al Carrito</Button>
             <div className="itemCount">
                 <Button onClick={bajarCantidad} className="btn">-</Button>
                 <p className="parra">{cantidad}</p>
                 <Button onClick={subirCantidad} className="btn">+</Button>
             </div>
+            <Button onClick = {onDelete} className="btn btn-danger">Eliminar</Button>
         </div>
     )
 }

@@ -8,7 +8,7 @@ export default function ItemListContainer(props) {
   const [arrayProductos, setArrayProductos] = useState([])
   let {categoryid} = useParams();
 
-  console.log("%cRenderizando itemlist!", "background-color: yellow");
+  /* console.log("%cRenderizando itemlist!", "background-color: yellow"); */
  
   useEffect(()=>{
     if(!categoryid){
