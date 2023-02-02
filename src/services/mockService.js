@@ -88,7 +88,7 @@ const obtenerProductos = () => {
 
     setTimeout(() => {
       resolve(arrayProductos)
-    }, 1000);
+    }, 2000);
   })
 }
 
@@ -105,7 +105,7 @@ const obtenerDetalle = (idWeb) => {
       } else {
         reject("No se Encuentra el producto")
       }
-    }, 1000);
+    }, 2000);
   })
 }
 

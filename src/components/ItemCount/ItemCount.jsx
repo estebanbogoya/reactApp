@@ -29,7 +29,6 @@ export default function ItemCount({onAddToCart, onDelete}) {
                 <p className="parra">{cantidad}</p>
                 <Button onClick={subirCantidad} className="btn">+</Button>
             </div>
-            <Button onClick = {onDelete} className="btn btn-danger">Eliminar</Button>
         </div>
     )
 }

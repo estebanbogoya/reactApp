@@ -3,16 +3,20 @@ import { cartContext } from "../../storage/cartContext";
 import { useParams } from "react-router-dom";
 import { obtenerDetalle } from "../../services/mockService";
 import ItemDetail from "./ItemDetail";
+import Loader from "../Loader/Loader";
 
 
 export default function ItemDetailContainer() {
     const [producto, setProducto] = useState([])
+    const [isLoading, setIsLoadinig] = useState(true)
+    const [isInCart, setIsInCart] = useState()
     let { itemid } = useParams();
 
-    const {addToCart, removeItem} = useContext(cartContext)
+    const { addToCart, removeItem } = useContext(cartContext)
 
     function handleOnAdd(cantidad) {
-        const productoCantidad = {...producto, cantidad: cantidad}
+        setIsInCart(cantidad)
+        const productoCantidad = { ...producto, cantidad: cantidad }
         addToCart(productoCantidad)
     }
 
@@ -24,16 +28,24 @@ export default function ItemDetailContainer() {
         obtenerDetalle(itemid).then((respuesta) => {
             setProducto(respuesta);
         }).catch(error => alert(error))
+            .finally(
+                () => setIsLoadinig(false))
     }, [])
-    return (
-        <ItemDetail
-            onAddToCart={handleOnAdd}
-            onDelete={handleOnDelete}
-            title={producto.title}
-            model={producto.model}
-            year={producto.year}
-            image={producto.image}
-            price={producto.price}
-        />
-    )
-}   
+
+    if (isLoading) {
+        return <Loader />
+    } else {
+        return (
+            <ItemDetail
+                isInCart={isInCart}
+                onAddToCart={handleOnAdd}
+                onDelete={handleOnDelete}
+                title={producto.title}
+                model={producto.model}
+                year={producto.year}
+                image={producto.image}
+                price={producto.price}
+            />
+        )
+    }
+}

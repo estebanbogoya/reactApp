@@ -1,36 +1,51 @@
-import './itemlist.css'; 
+import './itemlist.css';
 import Item from './Item';
 import obtenerProductos, { obtenerCategoria } from '../../services/mockService';
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 export default function ItemListContainer(props) {
   const [arrayProductos, setArrayProductos] = useState([])
-  let {categoryid} = useParams();
+  const [isLoading, setIsLoadinig] = useState(true)
+  let { categoryid } = useParams();
 
-  /* console.log("%cRenderizando itemlist!", "background-color: yellow"); */
- 
-  useEffect(()=>{
-    if(!categoryid){
-      obtenerProductos().then((respuesta)=>{
+  useEffect(() => {
+    if (!categoryid) {
+      obtenerProductos().then((respuesta) => {
         setArrayProductos(respuesta);
-      }).catch(error=>alert(error))
-    }else{
+      }).catch(error => alert(error))
+        .finally(
+          () => setIsLoadinig(false)
+        )
+    } else {
       obtenerCategoria(categoryid)
-      .then((respuesta)=>{
-        setArrayProductos(respuesta)
-      })
+        .then((respuesta) => {
+          setArrayProductos(respuesta)
+        }).catch(error => alert(error))
+        .finally(
+          () => setIsLoadinig(false)
+        )
     }
-    
-  },[categoryid]);
 
-    return (
-        <div className='itemList'>
+  }, [categoryid]);
+
+  return (
+    <>
+      {
+        isLoading ?
+          <Loader />
+          :
+          <div className='itemList'>
+
             {
-                arrayProductos.map((elemento =>{
-                    return <Item key= {elemento.id} item = {elemento}/>
-                }))
+              arrayProductos.map((elemento => {
+                return <Item key={elemento.id} item={elemento} />
+              }))
             }
-        </div>
-    )
+          </div>
+      }
+
+    </>
+  )
 }

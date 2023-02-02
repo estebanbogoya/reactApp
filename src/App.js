@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import PageNotFound from './components/Pages/PageNotFound';
 import { CartProvider } from './storage/cartContext'
+import CartContainer from './components/CartContainer/CartContainer';
 
 function App() {
   function logOutSession() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/detail/:itemid" element={<ItemDetailContainer />} />
             <Route path="/category/:categoryid" element={<ItemListContainer />} />
+            <Route path ="/cart" element = {<CartContainer/>}/>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </CartProvider>

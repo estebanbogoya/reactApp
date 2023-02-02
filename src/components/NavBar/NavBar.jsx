@@ -17,7 +17,7 @@ export default function NavBar(props) {
                     <Link to="/">Todos</Link>
                     <Link to="/category/New">Modernos</Link>
                     <Link to="/category/Old">Antiguos</Link>
-                    <Link to="/">
+                    <Link to="/cart">
                         <CartWidget />
                     </Link>
                 </ul>

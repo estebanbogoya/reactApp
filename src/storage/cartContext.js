@@ -46,10 +46,18 @@ function CartProvider(props) {
         return total
     }
 
+    function totalPrice() {
+        let totalPrecio = 0
+        cart.forEach(producto => {
+            totalPrecio = totalPrecio + (producto.cantidad * producto.price)
+        });
+        return totalPrecio
+    }
+
     return (
         //3. Se retorna el Provider del context con un valor peronalizado
 
-        <cartContext.Provider value={{ cart, test, addToCart, removeItem, clearCart, getTotalItemsInCart }}>
+        <cartContext.Provider value={{ cart, test, addToCart, removeItem, clearCart, getTotalItemsInCart, totalPrice}}>
             {props.children}
         </cartContext.Provider>
     )
