@@ -6,8 +6,11 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import PageNotFound from './components/Pages/PageNotFound';
 import { CartProvider } from './storage/cartContext'
 import CartContainer from './components/CartContainer/CartContainer';
+import app, { obtenerProductos } from './services/firebase';
 
 function App() {
+  
+
   function logOutSession() {
     console.log("Log out");
   }

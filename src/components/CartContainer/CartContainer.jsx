@@ -7,14 +7,16 @@ export default function CartContainer() {
     
     if (cart.length===0) {
         return(
-            <div>Carrito Vacio papi</div>
+            <h1>Carrito Vacio</h1>
         )    
     }else{ 
         return (
         <div className="itemDetail">
+            <h1>Este es tu Carrito</h1>
             {cart.map(itemInCart => {
-                return (
-                    <div key={itemInCart.id} className="cardProductos containerDetail">
+                let keyCart = itemInCart.id
+                return (  
+                    <div key={keyCart} className="cardProductos containerDetail">
                         <h2>{itemInCart.title}</h2>
                         <h3>{itemInCart.model}</h3>
                         <h4>Cantidad:{itemInCart.cantidad}</h4>

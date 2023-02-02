@@ -7,7 +7,6 @@ import { cartContext } from "../../storage/cartContext";
 
 export default function NavBar(props) {
     const context = useContext(cartContext);
-    context.test();
 
     return (
         <div className='barra'>

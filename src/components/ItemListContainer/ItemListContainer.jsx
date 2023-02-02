@@ -1,9 +1,11 @@
 import './itemlist.css';
 import Item from './Item';
-import obtenerProductos, { obtenerCategoria } from '../../services/mockService';
+import { obtenerCategoria } from '../../services/firebase';
+import { obtenerProductos } from "../../services/firebase";
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
+
 
 export default function ItemListContainer(props) {
   const [arrayProductos, setArrayProductos] = useState([])

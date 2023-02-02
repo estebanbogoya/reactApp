@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
 import { useParams } from "react-router-dom";
-import { obtenerDetalle } from "../../services/mockService";
+import { obtenerDetalle } from "../../services/firebase";
 import ItemDetail from "./ItemDetail";
 import Loader from "../Loader/Loader";
 

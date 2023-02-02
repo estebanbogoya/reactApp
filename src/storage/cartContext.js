@@ -8,8 +8,6 @@ export const cartContext = createContext();
 
 function CartProvider(props) {
     const [cart, setCart] = useState([])
-    
-    const test = ()=>console.log("Test");
 
     function addToCart(item){
         let productInCart = cart.findIndex(itemEnCarrito => itemEnCarrito.id === item.id)
@@ -22,14 +20,13 @@ function CartProvider(props) {
             setCart(newCart)
             
         }
-        console.log(newCart);
+        console.log("Carrito ===>", newCart);
     }
 
     function removeItem(id) {
         let cartAux = [...cart]
         cartAux = cartAux.filter(prod => prod.id !== id)
         setCart(cartAux)
-        console.log(cartAux);
     }
 
     function clearCart() {
@@ -49,7 +46,7 @@ function CartProvider(props) {
     function totalPrice() {
         let totalPrecio = 0
         cart.forEach(producto => {
-            totalPrecio = totalPrecio + (producto.cantidad * producto.price)
+            totalPrecio += (producto.cantidad * producto.price)
         });
         return totalPrecio
     }
@@ -57,7 +54,7 @@ function CartProvider(props) {
     return (
         //3. Se retorna el Provider del context con un valor peronalizado
 
-        <cartContext.Provider value={{ cart, test, addToCart, removeItem, clearCart, getTotalItemsInCart, totalPrice}}>
+        <cartContext.Provider value={{ cart, addToCart, removeItem, clearCart, getTotalItemsInCart, totalPrice}}>
             {props.children}
         </cartContext.Provider>
     )
