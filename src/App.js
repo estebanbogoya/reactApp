@@ -6,7 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import PageNotFound from './components/Pages/PageNotFound';
 import { CartProvider } from './storage/cartContext'
 import CartContainer from './components/CartContainer/CartContainer';
-import app, { obtenerProductos } from './services/firebase';
+import app, { exportArray } from './services/firebase';
 
 function App() {
   
@@ -20,6 +20,7 @@ function App() {
   }
   return (
     <>
+      {/* <button onClick={exportArray}>Traer productos</button> */}
       <BrowserRouter>
         <CartProvider>
           <NavBar onLogin={logInSession} onLogOut={logOutSession} />
